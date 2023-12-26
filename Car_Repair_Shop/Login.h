@@ -67,6 +67,7 @@ bool Login::validateLogin()
             return false;
         }
     }
+    return false;
 }
 
 void Login::resetInput()

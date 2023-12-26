@@ -36,7 +36,7 @@ void Date::display()
     cout << this->day << "/" << this->month << "/" << this->year << endl;
 }
 
-// Static Member Function to input the date of vehicle registration
+// Static function to input the date of vehicle registration
 Date inputDate()
 {
     int day;

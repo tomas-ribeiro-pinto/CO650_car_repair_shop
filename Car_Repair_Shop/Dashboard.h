@@ -5,18 +5,19 @@
 
 using namespace std;
 
-class Dashboard
+struct Dashboard
 {
-public:
+    char option;
     Dashboard();
     ~Dashboard();
     void display();
     void inputOption();
-    void chooseOption(char &choice);
+    void chooseOption(char &option);
 };
 
 Dashboard::Dashboard()
 {
+    this->option = '0';
 }
 
 Dashboard::~Dashboard()
@@ -25,33 +26,34 @@ Dashboard::~Dashboard()
 
 void Dashboard::display()
 {
-    cout << "CAR REPAIR SHOP" << endl;
-    cout << "DASHBOARD" << endl;
-    cout << "********************\n"
-         << endl;
-    cout << "1. Register a new vehicle for repair" << endl;
-    cout << "2. Display all vehicles" << endl;
-    cout << "3. Display all vehicles needing service" << endl;
-    cout << "4. Add repair" << endl;
-    cout << "5. Pay repair bill" << endl;
-    cout << "6. Display all bills" << endl;
-    cout << "7. Display outsanding bills by plate" << endl;
-    cout << "8. Exit" << endl;
-
-    inputOption();
+    while (option != '8')
+    {
+        cout << "CAR REPAIR SHOP" << endl;
+        cout << "DASHBOARD" << endl;
+        cout << "********************\n"
+             << endl;
+        cout << "1. Register a new vehicle for repair" << endl;
+        cout << "2. Display all vehicles" << endl;
+        cout << "3. Display all vehicles needing service" << endl;
+        cout << "4. Add repair" << endl;
+        cout << "5. Pay repair bill" << endl;
+        cout << "6. Display all bills" << endl;
+        cout << "7. Display outsanding bills by plate" << endl;
+        cout << "8. Exit" << endl;
+        inputOption();
+    }
 }
 
 void Dashboard::inputOption()
 {
-    char option = '0';
     cout << "\n Choose an option: " << endl;
     cin >> option;
     chooseOption(option);
 }
 
-void Dashboard::chooseOption(char &choice)
+void Dashboard::chooseOption(char &option)
 {
-    switch (choice)
+    switch (option)
     {
     case '1':
     {

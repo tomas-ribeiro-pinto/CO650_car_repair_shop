@@ -3,7 +3,6 @@
 #include <iostream>
 #include "Car.h"
 #include "Date.h"
-#include "Dashboard.h"
 
 using namespace std;
 
@@ -59,11 +58,9 @@ void RegisterVehicle::display()
     car->displayDetails();
 
     // return to dashboard
-    cout << "\n\nPress any key to return to the dashboard" << endl;
-    cin;
-    system("cls");
-    Dashboard *dashboard = new Dashboard();
-    dashboard->display();
+    cout << "\n\nPress any key to return to the dashboard..." << endl;
+    cin.get();
+    cin.ignore();
 }
 
 void RegisterVehicle::inputFuelOption()
