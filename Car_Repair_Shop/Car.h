@@ -9,12 +9,12 @@ using namespace std;
 class Car : public Vehicle
 {
 public:
-    Car(string &plate, string &owner, Date &registerDate, string &color, Fuel &fuelType);
+    Car(string plate, string owner, Date registerDate, string color, Fuel fuelType);
     ~Car();
     void displayDetails();
 };
 
-Car::Car(string &plate, string &owner, Date &registerDate, string &color, Fuel &fuelType) : Vehicle(plate, owner, registerDate, color, fuelType)
+Car::Car(string plate, string owner, Date registerDate, string color, Fuel fuelType) : Vehicle(plate, owner, registerDate, color, fuelType)
 {
 }
 

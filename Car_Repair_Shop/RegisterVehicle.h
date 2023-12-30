@@ -18,9 +18,10 @@ private:
 public:
     RegisterVehicle();
     ~RegisterVehicle();
-    void display();
+    void display(Vehicle **&vehicles, int &size);
     void inputFuelOption();
     void chooseOption(char &choice);
+    void addVehicle(Vehicle **&vehicles, int &size);
 };
 
 RegisterVehicle::RegisterVehicle()
@@ -31,7 +32,7 @@ RegisterVehicle::~RegisterVehicle()
 {
 }
 
-void RegisterVehicle::display()
+void RegisterVehicle::display(Vehicle **&vehicles, int &size)
 {
     cout << "\n\nREGISTER VEHICLE" << endl;
     cout << "********************\n"
@@ -39,7 +40,8 @@ void RegisterVehicle::display()
     cout << "Insert the plate: " << endl;
     cin >> this->plate;
     cout << "Insert the owner: " << endl;
-    cin >> this->owner;
+    cin.ignore();
+    getline(cin, this->owner);
     cout << "Insert the date of vehicle registration: " << endl;
     this->registerDate = inputDate();
     cout << "Insert the vehicle color: " << endl;
@@ -52,10 +54,8 @@ void RegisterVehicle::display()
          << endl;
     inputFuelOption();
 
-    Car *car = new Car(this->plate, this->owner, this->registerDate, this->color, this->fuelType);
-
-    cout << "\n\nCAR REGISTERED!" << endl;
-    car->displayDetails();
+    // add vehicle to vehicles array
+    addVehicle(vehicles, size);
 
     // return to dashboard
     cout << "\n\nPress any key to return to the dashboard..." << endl;
@@ -101,4 +101,23 @@ void RegisterVehicle::chooseOption(char &choice)
         inputFuelOption();
     }
     }
+}
+
+void RegisterVehicle::addVehicle(Vehicle **&vehicles, int &size)
+{
+    Vehicle **temp = new Vehicle *[size + 1];
+    for (int i = 0; i < size; i++)
+    {
+        temp[i] = vehicles[i];
+    }
+
+    Car *car = new Car(this->plate, this->owner, this->registerDate, this->color, this->fuelType);
+    temp[size] = car;
+    size++;
+
+    delete[] vehicles;
+    vehicles = temp;
+
+    cout << "\n\nCAR REGISTERED!" << endl;
+    car->displayDetails();
 }

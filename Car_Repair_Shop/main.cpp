@@ -13,6 +13,10 @@ int main()
     // login screen for authentication purposes
     Login *login = new Login();
     login->display();
+
+    // Creates a list of vehicles
+    // list<Vehicle> vehicles = {};
+
     Dashboard *dashboard = new Dashboard();
     dashboard->display();
     return 0;

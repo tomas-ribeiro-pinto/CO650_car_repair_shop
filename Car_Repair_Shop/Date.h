@@ -10,7 +10,7 @@ public:
     int day;
     int month;
     int year;
-    Date(int &day, int &month, int &year);
+    Date(int day, int month, int year);
     Date();
     ~Date();
     void display();
@@ -20,7 +20,7 @@ Date::Date()
 {
 }
 
-Date::Date(int &day, int &month, int &year)
+Date::Date(int day, int month, int year)
 {
     this->day = day;
     this->month = month;

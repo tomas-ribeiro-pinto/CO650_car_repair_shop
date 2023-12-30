@@ -39,7 +39,7 @@ public:
     string getColor();
     void setFuelType(Fuel &fuel);
     Fuel getFuelType();
-    virtual void displayDetails() = 0;
+    virtual void displayDetails();
 };
 
 Vehicle::Vehicle(string plate, string owner, Date registerDate, string color, Fuel fuelType)
@@ -108,4 +108,8 @@ void Vehicle::setFuelType(Fuel &fuel)
 Fuel Vehicle::getFuelType()
 {
     return this->fuelType;
+}
+
+void Vehicle::displayDetails()
+{
 }
