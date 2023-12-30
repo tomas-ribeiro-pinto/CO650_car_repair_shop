@@ -29,6 +29,10 @@ protected:
 public:
     Vehicle(string plate, string owner, Date registerDate, string color, Fuel fuelType);
     ~Vehicle();
+
+    // static member variable to keep track of vehicle count
+    static int vehicleCount;
+
     void setPlate(string &plate);
     string getPlate();
     void setOwner(string &owner);
@@ -44,6 +48,8 @@ public:
 
 Vehicle::Vehicle(string plate, string owner, Date registerDate, string color, Fuel fuelType)
 {
+    Vehicle::vehicleCount++;
+
     this->plate = plate;
     this->owner = owner;
     this->registerDate = registerDate;
@@ -58,6 +64,7 @@ Vehicle::Vehicle(string plate, string owner, Date registerDate, string color, Fu
 
 Vehicle::~Vehicle()
 {
+    Vehicle::vehicleCount--;
 }
 
 void Vehicle::setPlate(string &plate)

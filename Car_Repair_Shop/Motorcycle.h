@@ -6,25 +6,25 @@
 
 using namespace std;
 
-class Motorcyle : public Vehicle
+class Motorcycle : public Vehicle
 {
 public:
-    Motorcyle(string &plate, string &owner, Date &registerDate, string &color, Fuel &fuelType);
-    ~Motorcyle();
+    Motorcycle(string &plate, string &owner, Date &registerDate, string &color, Fuel &fuelType);
+    ~Motorcycle();
     void displayDetails();
 };
 
-Motorcyle::Motorcyle(string &plate, string &owner, Date &registerDate, string &color, Fuel &fuelType) : Vehicle(plate, owner, registerDate, color, fuelType)
+Motorcycle::Motorcycle(string &plate, string &owner, Date &registerDate, string &color, Fuel &fuelType) : Vehicle(plate, owner, registerDate, color, fuelType)
 {
 }
 
-Motorcyle::~Motorcyle()
+Motorcycle::~Motorcycle()
 {
 }
 
-void Motorcyle::displayDetails()
+void Motorcycle::displayDetails()
 {
-    cout << "Motorcyle details: " << endl;
+    cout << "Motorcycle details: " << endl;
     cout << "********************\n"
          << endl;
     cout << "Plate: " << this->getPlate() << endl;

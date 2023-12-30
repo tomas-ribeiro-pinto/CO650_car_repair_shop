@@ -39,6 +39,10 @@ void Login::display()
         cout << "LOGIN" << endl;
         cout << "********************\n"
              << endl;
+        cout << "Admin Username: admin" << endl;
+        cout << "Admin Password: admin" << endl;
+        cout << "********************\n"
+             << endl;
         cout << "Insert your Username: " << endl;
         cin >> this->username;
         cout << "Insert your Password: " << endl;

@@ -7,6 +7,9 @@
 
 using namespace std;
 
+// Static variable to keep track of the number of vehicles registered
+int Vehicle::vehicleCount = 0;
+
 int main()
 {
     // Creates a new Login object and displays the

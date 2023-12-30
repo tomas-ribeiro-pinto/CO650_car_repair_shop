@@ -20,7 +20,7 @@ private:
 public:
     AddRepair();
     ~AddRepair();
-    void display(Repair **&repairs, int &size);
+    void display(Repair **&repairs, int &size, void (*returnToDashboard)());
     void inputOption();
     void chooseOption(char &choice);
     void add(Repair **&repairs, int &size);
@@ -34,7 +34,7 @@ AddRepair::~AddRepair()
 {
 }
 
-void AddRepair::display(Repair **&repairs, int &size)
+void AddRepair::display(Repair **&repairs, int &size, void (*returnToDashboard)())
 {
     cout << "\n\nADD REPAIR" << endl;
     cout << "********************\n"
@@ -58,10 +58,7 @@ void AddRepair::display(Repair **&repairs, int &size)
     // add vehicle to vehicles array
     add(repairs, size);
 
-    // return to dashboard
-    cout << "\n\nPress any key to return to the dashboard..." << endl;
-    cin.get();
-    cin.ignore();
+    returnToDashboard();
 }
 
 void AddRepair::inputOption()

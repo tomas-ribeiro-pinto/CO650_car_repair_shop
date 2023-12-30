@@ -2,6 +2,8 @@
 #include <string>
 #include <iostream>
 #include "Car.h"
+#include "Motorcycle.h"
+#include "Van.h"
 #include "Date.h"
 
 using namespace std;
@@ -18,9 +20,11 @@ private:
 public:
     RegisterVehicle();
     ~RegisterVehicle();
-    void display(Vehicle **&vehicles, int &size);
+    void display(Vehicle **&vehicles, int &size, void (*returnToDashboard)());
     void inputFuelOption();
-    void chooseOption(char &choice);
+    void chooseFuelOption(char &choice);
+    Vehicle *inputVehicleOption(Vehicle **&temp, int &size);
+    void chooseVehicleOption(char &choice, Vehicle **&temp, int &size);
     void addVehicle(Vehicle **&vehicles, int &size);
 };
 
@@ -32,7 +36,7 @@ RegisterVehicle::~RegisterVehicle()
 {
 }
 
-void RegisterVehicle::display(Vehicle **&vehicles, int &size)
+void RegisterVehicle::display(Vehicle **&vehicles, int &size, void (*returnToDashboard)())
 {
     cout << "\n\nREGISTER VEHICLE" << endl;
     cout << "********************\n"
@@ -57,10 +61,8 @@ void RegisterVehicle::display(Vehicle **&vehicles, int &size)
     // add vehicle to vehicles array
     addVehicle(vehicles, size);
 
-    // return to dashboard
-    cout << "\n\nPress any key to return to the dashboard..." << endl;
-    cin.get();
-    cin.ignore();
+    // return to dashboard using a function pointer
+    returnToDashboard();
 }
 
 void RegisterVehicle::inputFuelOption()
@@ -68,10 +70,10 @@ void RegisterVehicle::inputFuelOption()
     char option = '0';
     cout << "\n Choose an option: " << endl;
     cin >> option;
-    chooseOption(option);
+    chooseFuelOption(option);
 }
 
-void RegisterVehicle::chooseOption(char &choice)
+void RegisterVehicle::chooseFuelOption(char &choice)
 {
     switch (choice)
     {
@@ -103,6 +105,54 @@ void RegisterVehicle::chooseOption(char &choice)
     }
 }
 
+Vehicle *RegisterVehicle::inputVehicleOption(Vehicle **&temp, int &size)
+{
+    char option = '0';
+    cout << "\n Choose an option: " << endl;
+    cin >> option;
+    chooseVehicleOption(option, temp, size);
+
+    return temp[size];
+}
+
+void RegisterVehicle::chooseVehicleOption(char &choice, Vehicle **&temp, int &size)
+{
+    switch (choice)
+    {
+        // User chooses a car
+    case '1':
+    {
+        Car *car = new Car(this->plate, this->owner, this->registerDate, this->color, this->fuelType);
+        temp[size] = car;
+        cout << "\n\nCAR REGISTERED!" << endl;
+        break;
+    }
+        // User chooses a motorcycle
+    case '2':
+    {
+        Motorcycle *motorcycle = new Motorcycle(this->plate, this->owner, this->registerDate, this->color, this->fuelType);
+        temp[size] = motorcycle;
+        cout << "\n\nMOTORCYCLE REGISTERED!" << endl;
+
+        break;
+    }
+        // User chooses a van
+    case '3':
+    {
+        Van *van = new Van(this->plate, this->owner, this->registerDate, this->color, this->fuelType);
+        temp[size] = van;
+        cout << "\n\nVAN REGISTERED!" << endl;
+
+        break;
+    }
+    default:
+    {
+        cout << "Invalid option" << endl;
+        inputVehicleOption(temp, size);
+    }
+    }
+}
+
 void RegisterVehicle::addVehicle(Vehicle **&vehicles, int &size)
 {
     Vehicle **temp = new Vehicle *[size + 1];
@@ -111,13 +161,17 @@ void RegisterVehicle::addVehicle(Vehicle **&vehicles, int &size)
         temp[i] = vehicles[i];
     }
 
-    Car *car = new Car(this->plate, this->owner, this->registerDate, this->color, this->fuelType);
-    temp[size] = car;
+    cout << "Choose type of vehicle:" << endl;
+    cout << "1 - Car" << endl;
+    cout << "2 - Motorcycle" << endl;
+    cout << "3 - Van" << endl;
+
+    cin.ignore();
+    Vehicle *vehicle = inputVehicleOption(temp, size);
     size++;
 
     delete[] vehicles;
     vehicles = temp;
 
-    cout << "\n\nCAR REGISTERED!" << endl;
-    car->displayDetails();
+    vehicle->displayDetails();
 }
