@@ -5,6 +5,7 @@
 #include "Motorcycle.h"
 #include "Van.h"
 #include "Date.h"
+#include "Exception.h"
 
 using namespace std;
 
@@ -107,10 +108,23 @@ void RegisterVehicle::chooseFuelOption(char &choice)
 
 Vehicle *RegisterVehicle::inputVehicleOption(Vehicle **&temp, int &size)
 {
-    char option = '0';
-    cout << "\n Choose an option: " << endl;
-    cin >> option;
-    chooseVehicleOption(option, temp, size);
+    try
+    {
+        char option = '0';
+        cout << "\n Choose an option: " << endl;
+        cin >> option;
+        if (option != '1' || option != '2' || option != '3')
+        {
+            IOException ioException;
+            throw ioException;
+        }
+
+        chooseVehicleOption(option, temp, size);
+    }
+    catch (exception &e)
+    {
+        cerr << e.what() << '\n';
+    }
 
     return temp[size];
 }
