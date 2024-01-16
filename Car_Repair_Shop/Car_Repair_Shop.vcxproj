@@ -101,20 +101,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AddRepair.cpp" />
     <ClCompile Include="Bill.cpp" />
     <ClCompile Include="Car.cpp" />
     <ClCompile Include="Dashboard.cpp" />
     <ClCompile Include="Date.cpp" />
     <ClCompile Include="Exception.cpp" />
-    <ClCompile Include="Login.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Motorcycle.cpp" />
     <ClCompile Include="Payment.cpp" />
     <ClCompile Include="PaymentGateway.cpp" />
-    <ClCompile Include="RegisterVehicle.cpp" />
     <ClCompile Include="Repair.cpp" />
-    <ClCompile Include="Van.cpp" />
     <ClCompile Include="Vehicle.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -126,19 +122,15 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AddRepair.h" />
     <ClInclude Include="Bill.h" />
     <ClInclude Include="Car.h" />
     <ClInclude Include="Dashboard.h" />
     <ClInclude Include="Date.h" />
     <ClInclude Include="Exception.h" />
-    <ClInclude Include="Login.h" />
     <ClInclude Include="Motorcycle.h" />
     <ClInclude Include="Payment.h" />
     <ClInclude Include="PaymentGateway.h" />
-    <ClInclude Include="RegisterVehicle.h" />
     <ClInclude Include="Repair.h" />
-    <ClInclude Include="Van.h" />
     <ClInclude Include="Vehicle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

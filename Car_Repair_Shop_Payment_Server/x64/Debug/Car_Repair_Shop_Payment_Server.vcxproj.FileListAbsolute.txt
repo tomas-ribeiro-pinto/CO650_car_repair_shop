@@ -1,0 +1,4 @@
+C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop_Payment_Server\x64\Debug\Car_Repair_Shop_Payment_Server.vcxproj.MdMergeInputs.cache
+C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop_Payment_Server\x64\Debug\Car_Repair_Shop_Payment_Server.vcxproj.cppwinrt_plat.cache
+C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop_Payment_Server\x64\Debug\Car_Repair_Shop_Payment_Server.vcxproj.cppwinrt_comp.cache
+C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop_Payment_Server\x64\Debug\Car_Repair_Shop_Payment_Server.exe

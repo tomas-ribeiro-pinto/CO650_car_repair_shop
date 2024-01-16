@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// OBJECTIVE 11 - EXCEPTION HANDLING
 class IOException : public exception
 {
 public:

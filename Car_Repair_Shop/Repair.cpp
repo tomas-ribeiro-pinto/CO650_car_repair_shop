@@ -1,5 +1,6 @@
 #include "Repair.h"
 
+
 Repair::Repair(string plate, string employee, Date dateIssued, string repairDescription, bool isRepaired, double cost)
 {
     this->plate = plate;
@@ -70,10 +71,8 @@ void Repair::displayRepairDescription()
         << this->repairDescription << endl;
 }
 
-/**
- * Search repairs by plate which have been completed
- * returns a vector of dynamic Repair objects
- */
+ //Search repairs by plate which have been completed
+ //returns a vector of dynamic Repair objects
 vector<Repair*> Repair::searchRepairsByPlate(Repair** repairs, int& size, string plate)
 {
     vector<Repair*> searchResults{};
@@ -81,24 +80,13 @@ vector<Repair*> Repair::searchRepairsByPlate(Repair** repairs, int& size, string
 
     for (int i = 0; i < size; i++)
     {
-        if (Repair::plateToUpperCase(repairs[i]->getPlate()) == Repair::plateToUpperCase(plate) && repairs[i]->getIsRepaired() == true)
+        if (Vehicle::plateToUpperCase(repairs[i]->getPlate()) == Vehicle::plateToUpperCase(plate) && repairs[i]->getIsRepaired() == true)
         {
             searchResults.push_back(repairs[i]);
         }
     }
 
     return searchResults;
-}
-
-string Repair::plateToUpperCase(string plate)
-{
-    const int length = plate.length();
-    char* str = new char[length + 1];
-    strcpy(str, plate.c_str());
-    for (int x = 0; x < length; x++)
-        str[x] = toupper(str[x]);
-
-    return str;
 }
 
 int Repair::getRepairSize(Repair**& repairs)
@@ -109,4 +97,88 @@ int Repair::getRepairSize(Repair**& repairs)
         size++;
     }
     return size;
+}
+
+void Repair::addRepair(Repair**& repairs, int& size, void (*returnToDashboard)())
+{
+    string plate;
+    string employee;
+    Date dateIssued;
+    string repairDescription;
+    float cost;
+    bool isRepaired;
+
+    cout << "\n\nADD REPAIR" << endl;
+    cout << "********************\n"
+        << endl;
+    cout << "Insert the vehicle plate: " << endl;
+    cin >> plate;
+    cout << "Insert employee name: " << endl;
+    cin >> employee;
+    cout << "Insert date of repair: " << endl;
+    dateIssued = Date::inputDate();
+    cout << "Insert the repair description:" << endl;
+    cin.ignore();
+    getline(cin, repairDescription);
+    cout << "\nInsert the repair status: " << endl;
+    cout << "1 - IN PROGRESS" << endl;
+    cout << "2 - REPAIRED" << endl;
+    Repair::inputOption(isRepaired);
+    cout << "Insert the repair cost: " << endl;
+    cin >> cost;
+
+    Repair* repair = new Repair(plate, employee, dateIssued, repairDescription, isRepaired, cost);
+
+    // add vehicle to vehicles array
+    Repair::addToList(repairs, size, repair);
+
+    returnToDashboard();
+}
+
+void Repair::inputOption(bool &isRepaired)
+{
+    char option = '0';
+    cout << "\n Choose an option: " << endl;
+    cin >> option;
+    Repair::chooseOption(isRepaired, option);
+}
+
+void Repair::chooseOption(bool &isRepaired, char& choice)
+{
+    switch (choice)
+    {
+    case '1':
+    {
+        isRepaired = false;
+        break;
+    }
+    case '2':
+    {
+        isRepaired = true;
+        break;
+    }
+    default:
+    {
+        cout << "Invalid option" << endl;
+        Repair::inputOption(isRepaired);
+    }
+    }
+}
+
+void Repair::addToList(Repair**& repairs, int& size, Repair*& repair)
+{
+    Repair** temp = new Repair * [size + 1];
+    for (int i = 0; i < size; i++)
+    {
+        temp[i] = repairs[i];
+    }
+
+    temp[size] = repair;
+    size++;
+
+    delete[] repairs;
+    repairs = temp;
+
+    cout << "\n\nREPAIR ADDED!" << endl;
+    repair->displayRepairDescription();
 }

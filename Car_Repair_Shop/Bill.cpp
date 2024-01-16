@@ -1,9 +1,9 @@
 #include "Bill.h"
-#include "PaymentGateway.h"
+
 
 Bill::Bill(string plate, float cost, vector<Repair*> repairs)
 {
-    this->plate = Repair::plateToUpperCase(plate);
+    this->plate = Vehicle::plateToUpperCase(plate);
     this->cost = cost;
     this->repairs = repairs;
 
@@ -83,7 +83,6 @@ void Bill::setCardNumber(char *cardNumber)
     this->cardNumber = cardEnd;
 }
 
-// Set card number 4 last digits used to pay
 bool Bill::isPayed()
 {
     if (this->getCardNumber() != "")
@@ -104,6 +103,7 @@ void Bill::displayBill()
 
     for (int i = 0; i < repairs.size(); i++)
     {
+        // OBJECTIVE 6 - FRIENDSHIP
         // Access employee using friendship access granted in Repair.h
         cout << repairs.at(i)->getCost() << " | " << repairs.at(i)->getRepairDescription() << " | " << repairs.at(i)->employee << endl;
         cout << endl;
@@ -135,6 +135,7 @@ bool Bill::payBill()
     cin.ignore();
     cin.clear();
 
+    // OBJECTIVE 12 - WINSOCK CLIENT
     // Creates an object of PaymentGateway and initialises paymentGateway
     PaymentGateway paymentGateway = PaymentGateway();
     paymentGateway.initialise();
@@ -220,7 +221,7 @@ vector<Bill*> Bill::searchBillsByPlate(Bill**& bills, int& size, string plate)
 
     for (int i = 0; i < size; i++)
     {
-        if (Repair::plateToUpperCase(bills[i]->getPlate()) == Repair::plateToUpperCase(plate) && bills[i]->isPayed() == true)
+        if (Vehicle::plateToUpperCase(bills[i]->getPlate()) == Vehicle::plateToUpperCase(plate) && bills[i]->isPayed() == true)
         {
             searchResults.push_back(bills[i]);
         }

@@ -27,6 +27,8 @@ protected:
     Fuel fuelType;
 
 public:
+    // OBJECTIVE 8 - CONSTRUCTORS
+    // Parent Constructor of any car or motorcycle
     Vehicle(string plate, string owner, Date registerDate, string color, Fuel fuelType);
     ~Vehicle();
 
@@ -43,5 +45,17 @@ public:
     string getColor();
     void setFuelType(Fuel& fuel);
     Fuel getFuelType();
+
+    // OBJECTIVE 1 - ABSTRACTION
+    // abstract method for vehicle's description
     virtual void displayDetails();
+    static string plateToUpperCase(string plate);
+
+    // Static Member Functions for adding vehicles menu
+    static void registerVehicle(Vehicle**& vehicles, int& size, void(*returnToDashboard)());
+    static void inputFuelOption(Fuel& fuelType);
+    static void chooseFuelOption(Fuel& fuelType, char& choice);
+    static Vehicle* inputVehicleOption(Vehicle**& temp, int& size, Vehicle& vehicle);
+    static void chooseVehicleOption(char& choice, Vehicle**& temp, int& size, Vehicle& vehicle);
+    static void addToList(Vehicle**& vehicles, int& size, Vehicle& vehicle);
 };

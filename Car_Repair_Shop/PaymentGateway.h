@@ -5,6 +5,7 @@
 #include "iostream"
 #include "Bill.h"
 #include "Payment.h"
+#include "Exception.h"
 
 using namespace std;
 

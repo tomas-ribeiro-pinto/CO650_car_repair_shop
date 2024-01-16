@@ -1,5 +1,4 @@
 #include "PaymentGateway.h"
-#include "Exception.h"
 
 PaymentGateway::PaymentGateway()
 {
@@ -9,14 +8,20 @@ PaymentGateway::~PaymentGateway()
 {
 }
 
+// OBJECTIVE 12 - WINSOCK CLIENT
+// Initialises Payment Gateway by setting a socket connection with server
 bool PaymentGateway::initialise()
 {
+	// port number used for listening by the server
 	port = 55555;
 	wVersionRequested = MAKEWORD(2, 2);
+	// initialise DLL
 	wsaerr = WSAStartup(wVersionRequested, &wsaData);
 
-	// dll file missing error
+	// DLL file missing error
 	if (wsaerr != 0) {
+		// OBJECTIVE 11 - EXCEPTION HANDLING
+		// throws payment exception
 		PaymentException ex(0);
 		try {
 			throw ex;
@@ -30,8 +35,9 @@ bool PaymentGateway::initialise()
 	}
 }
 
-bool PaymentGateway::connectToGateway() {
-	
+bool PaymentGateway::connectToGateway() 
+{
+	// Create client socket 	
 	clientSocket = INVALID_SOCKET;
 	clientSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 
@@ -50,10 +56,12 @@ bool PaymentGateway::connectToGateway() {
 		return 0;
 	}
 
+	// connection details such as IP address
 	clientService.sin_family = AF_INET;
 	InetPton(AF_INET, _T("127.0.0.1"), &clientService.sin_addr.s_addr);
 	clientService.sin_port = htons(port);
 
+	// trys connecting to server, throws payment exception if unsuccessful
 	if (connect(clientSocket, (SOCKADDR*)&clientService, sizeof(clientService)) == SOCKET_ERROR) {
 		// connection error to server
 		PaymentException ex(0);
@@ -71,7 +79,10 @@ bool PaymentGateway::connectToGateway() {
 	return 1;
 }
 
-bool PaymentGateway::payBill(Bill *bill) {
+bool PaymentGateway::payBill(Bill *bill) 
+{
+	// if connection was made successfully
+	// ask for payment details and send them to server
 	if(connectToGateway()) {
 		char cardNumber[17];
 		char buffer[200];
@@ -101,6 +112,7 @@ bool PaymentGateway::payBill(Bill *bill) {
 			}
 			cout << endl;
 
+			// Create a Payment object and send it to the Server
 			Payment payment = Payment(bill->getPlate(), bill->getTotalCost(), bill->getCardNumber());
 			int byteCount = send(clientSocket, (char*)&payment, sizeof(Payment), 0);
 			if (byteCount == SOCKET_ERROR) {
@@ -117,11 +129,20 @@ bool PaymentGateway::payBill(Bill *bill) {
 			}
 
 
-			//listen back for payment confirmation
+			// Listen back for payment confirmation, on success returns true
+			// If ther is a client error returns payment exception and total cost of payment
 			char success[2];
 			int byteCountRcv = recv(clientSocket, success, 2, 0);
 			if (byteCountRcv < 0) {
-				printf("Client: error %ld.\n", WSAGetLastError());
+				PaymentException ex(bill->getTotalCost());
+				try {
+					throw ex;
+				}
+				catch (PaymentException& e)
+				{
+					cout << e.what() << " Total Bill: " << e.cost << endl;
+					printf("Client: error %ld.\n", WSAGetLastError());
+				}
 				return 0;
 			}
 			if (success[0] == 49) {
@@ -142,7 +163,6 @@ bool PaymentGateway::payBill(Bill *bill) {
 		}
 	}
 
-	//system("pause");
 	WSACleanup();
 	return 0;
 }

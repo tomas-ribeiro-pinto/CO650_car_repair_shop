@@ -6,6 +6,8 @@
 
 using namespace std;
 
+// OBJECTIVE 3 - INHERITANCE
+// class deriving from Vehicle
 class Motorcycle : public Vehicle
 {
 public:

@@ -1,0 +1,7 @@
+﻿  Payment.cpp
+  main.cpp
+C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop_Payment_Server\main.cpp(43,27): warning C4244: 'argumento': conversão de 'int' para 'u_short', possível perda de dados
+C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop_Payment_Server\main.cpp(9,26): warning C4100: 'argv': parâmetro formal não referenciado
+C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop_Payment_Server\main.cpp(9,14): warning C4100: 'argc': parâmetro formal não referenciado
+  Gerando Código...
+  Car_Repair_Shop_Payment_Server.vcxproj -> C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop_Payment_Server\x64\Debug\Car_Repair_Shop_Payment_Server.exe

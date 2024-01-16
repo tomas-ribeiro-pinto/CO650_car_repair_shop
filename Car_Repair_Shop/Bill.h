@@ -4,6 +4,7 @@
 #include "Date.h"
 #include "Repair.h"
 #include <vector>
+#include "PaymentGateway.h"
 
 using namespace std;
 
@@ -28,8 +29,13 @@ public:
     void getDateIssued();
     string getCardNumber();
     bool isPayed();
+
+    //OBJECTIVE 5 - OVERLOADING
+    // User can input a discount eiter with a float type value or
+    // a percentage by inputing a integer number between 0 and 100
     void setDiscount(float discount);
     void setDiscount(int discount);
+
     void setCardNumber(char *cardNumber);
     void displayBill();
     bool payBill();

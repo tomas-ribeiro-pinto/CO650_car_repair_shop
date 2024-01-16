@@ -21,19 +21,10 @@
     <ClCompile Include="Motorcycle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Van.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Vehicle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RegisterVehicle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Repair.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Login.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Exception.cpp">
@@ -49,9 +40,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Bill.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AddRepair.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PaymentGateway.cpp">
@@ -73,12 +61,6 @@
     <ClInclude Include="Vehicle.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
-    <ClInclude Include="Van.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AddRepair.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Bill.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -94,9 +76,6 @@
     <ClInclude Include="Exception.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Login.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Motorcycle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -104,9 +83,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PaymentGateway.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RegisterVehicle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Repair.h">

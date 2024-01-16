@@ -8,6 +8,8 @@ Car::~Car()
 {
 }
 
+// OBJECTIVE 4 - POLYMORPHIC BEHAVIOUR
+// implements abstract method and overrides default behaviour
 void Car::displayDetails()
 {
     cout << "Car details: " << endl;

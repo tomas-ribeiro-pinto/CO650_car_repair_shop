@@ -13,7 +13,7 @@ string Payment::getPlate()
     return this->plate;
 }
 
-// Get the total cost of all repairs without discount
+// Get the total cost of payment
 float Payment::getTotalCost()
 {
     return this->totalCost;
