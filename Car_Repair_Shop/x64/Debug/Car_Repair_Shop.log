@@ -1,0 +1,71 @@
+﻿  AddRepair.cpp
+  Bill.cpp
+C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Bill.cpp(16,30): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Bill.cpp(54,30): warning C4458: a declaração de 'discount' oculta o membro da classe
+  C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Bill.h(15,11):
+  consulte a declaração de 'Bill::discount'
+  
+C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Bill.cpp(60,28): warning C4458: a declaração de 'discount' oculta o membro da classe
+  C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Bill.h(15,11):
+  consulte a declaração de 'Bill::discount'
+  
+C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Bill.cpp(64,17): warning C4244: 'inicializando': conversão de 'int' para 'float', possível perda de dados
+C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Bill.cpp(78,32): warning C4458: a declaração de 'cardNumber' oculta o membro da classe
+  C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Bill.h(18,12):
+  consulte a declaração de 'Bill::cardNumber'
+  
+C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Bill.cpp(169,15): warning C4458: a declaração de 'discount' oculta o membro da classe
+  C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Bill.h(15,11):
+  consulte a declaração de 'Bill::discount'
+  
+C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Bill.cpp(177,13): warning C4458: a declaração de 'discount' oculta o membro da classe
+  C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Bill.h(15,11):
+  consulte a declaração de 'Bill::discount'
+  
+  Car.cpp
+  Dashboard.cpp
+C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Dashboard.cpp(58,36): warning C4458: a declaração de 'option' oculta o membro da classe
+  C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Dashboard.h(25,10):
+  consulte a declaração de 'Dashboard::option'
+  
+C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Dashboard.cpp(163,52): warning C4244: 'argumento': conversão de 'double' para 'float', possível perda de dados
+  Date.cpp
+  Exception.cpp
+  Login.cpp
+  main.cpp
+  Motorcycle.cpp
+  Payment.cpp
+  PaymentGateway.cpp
+C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\PaymentGateway.cpp(55,33): warning C4244: 'argumento': conversão de 'int' para 'u_short', possível perda de dados
+  RegisterVehicle.cpp
+C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\RegisterVehicle.cpp(98,9): warning C4551: faltando lista de argumentos na chamada de função
+  Repair.cpp
+C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Repair.cpp(32,33): warning C4458: a declaração de 'isRepaired' oculta o membro da classe
+  C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Repair.h(16,10):
+  consulte a declaração de 'Repair::isRepaired'
+  
+C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Repair.cpp(42,29): warning C4458: a declaração de 'cost' oculta o membro da classe
+  C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Repair.h(17,12):
+  consulte a declaração de 'Repair::cost'
+  
+C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Repair.cpp(95,36): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
+C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Repair.cpp(95,22): warning C4267: 'inicializando': conversão de 'size_t' para 'const int', possível perda de dados
+C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Repair.cpp(99,25): warning C4244: '=': conversão de 'int' para 'char', possível perda de dados
+C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Repair.cpp(97,5): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  Van.cpp
+  Vehicle.cpp
+C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Vehicle.cpp(24,32): warning C4458: a declaração de 'plate' oculta o membro da classe
+  C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Vehicle.h(21,12):
+  consulte a declaração de 'Vehicle::plate'
+  
+C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Vehicle.cpp(34,32): warning C4458: a declaração de 'owner' oculta o membro da classe
+  C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Vehicle.h(22,12):
+  consulte a declaração de 'Vehicle::owner'
+  
+C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Vehicle.cpp(54,32): warning C4458: a declaração de 'color' oculta o membro da classe
+  C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\Vehicle.h(25,12):
+  consulte a declaração de 'Vehicle::color'
+  
+  Gerando Código...
+C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\PaymentGateway.cpp(31): warning C4715: 'PaymentGateway::initialise': nem todos os caminhos de controle retornam um valor
+  Car_Repair_Shop.vcxproj -> C:\Users\Tomás\Documents\GitHub\CO650_car_repair_shop\Car_Repair_Shop\x64\Debug\Car_Repair_Shop.exe
