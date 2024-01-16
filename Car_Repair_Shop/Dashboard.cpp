@@ -158,7 +158,10 @@ void Dashboard::chooseOption(char& option)
             if (choice == 'y' || choice == 'Y')
             {
                 Bill* bill = new Bill(searchPlate, tCost, searchResults);
-                bill->payBill();
+                if (bill->payBill() == 0)
+                {
+                    cout << "Bill not paid!" << endl;
+                }
             }
             else
             {

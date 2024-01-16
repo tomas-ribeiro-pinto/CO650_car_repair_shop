@@ -31,7 +31,7 @@ public:
     void setDiscount(int discount);
     void setCardNumber(char *cardNumber);
     void displayBill();
-    void payBill();
+    bool payBill();
     void inputDiscountOption();
     void chooseDiscountOption(char& choice);
 };

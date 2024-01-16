@@ -1,12 +1,5 @@
 #include "PaymentGateway.h"
 
-class Data {
-
-public:
-	string plate;
-};
-
-
 PaymentGateway::PaymentGateway()
 {
 }
@@ -85,15 +78,25 @@ bool PaymentGateway::payBill(Bill *bill) {
 				Sleep(800/(i+1));
 			}
 			cout << endl;
-			Data data;
-			data.plate = "dffsdfsd";
-			Payment payment = Payment(bill->getPlate(), to_string(bill->getTotalCost()), bill->getCardNumber());
-			//int byteCount = send(clientSocket, (char*)&payment, sizeof(Payment), 0);
-			int byteCount = send(clientSocket, (char*)&data, sizeof(Data), 0);
+
+			Payment payment = Payment(bill->getPlate(), bill->getTotalCost(), bill->getCardNumber());
+			int byteCount = send(clientSocket, (char*)&payment, sizeof(Payment), 0);
 			if (byteCount == SOCKET_ERROR) {
 				cout << "--## PAYMENT DECLINED/FAILED ##--" << endl;
 				cout << "Error:" << WSAGetLastError() << endl;
 				return 0;
+			}
+
+
+			//listen back for payment confirmation
+			char success[2];
+			int byteCountRcv = recv(clientSocket, success, 2, 0);
+			if (byteCountRcv < 0) {
+				printf("Client: error %ld.\n", WSAGetLastError());
+				return 0;
+			}
+			if (success[0] == 49) {
+				return 1;
 			}
 		}
 		else
@@ -103,7 +106,7 @@ bool PaymentGateway::payBill(Bill *bill) {
 		}
 	}
 
-	system("pause");
+	//system("pause");
 	WSACleanup();
-	return 1;
+	return 0;
 }

@@ -1,6 +1,6 @@
 #include "Payment.h"
 
-Payment::Payment(string plate, string totalCost, string cardNumber)
+Payment::Payment(string plate, float totalCost, string cardNumber)
 {
     this->plate = plate;
     this->totalCost = totalCost;
@@ -17,7 +17,7 @@ string Payment::getPlate()
 }
 
 // Get the total cost of all repairs without discount
-string Payment::getTotalCost()
+float Payment::getTotalCost()
 {
     return this->totalCost;
 }

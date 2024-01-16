@@ -3,7 +3,7 @@
 
 Bill::Bill(string plate, float cost, vector<Repair*> repairs)
 {
-    this->plate = plate;
+    this->plate = Repair::plateToUpperCase(plate);
     this->cost = cost;
     this->repairs = repairs;
 
@@ -91,7 +91,7 @@ void Bill::displayBill()
     cout << "Bill for " << getPlate() << endl;
     cout << "Date issued: ";
     this->dateIssued.display();
-    cout << "  Card Number: ****" << getCardNumber();
+    cout << "  Card Number: ****" << getCardNumber() << endl;;
     cout << "********************\n"
         << endl;
     cout << "Cost | Repair Description | Employee Assigned" << endl;
@@ -111,7 +111,7 @@ void Bill::displayBill()
         << endl;
 }
 
-void Bill::payBill()
+bool Bill::payBill()
 {
     cout << "\n\nTOTAL COST (NO DISCOUNT) IS: " << this->cost << endl;
     cout << "ADD DISCOUNT? (y/n)" << endl;
@@ -132,10 +132,18 @@ void Bill::payBill()
     // Creates an object of PaymentGateway and initialises paymentGateway
     PaymentGateway paymentGateway = PaymentGateway();
     paymentGateway.initialise();
-    paymentGateway.payBill(this);
-
-    cout << endl;
-    displayBill();
+    if (paymentGateway.payBill(this))
+    {
+        cout << "##PAYMENT ACCEPTED!##\n" << endl;
+        displayBill();
+        return 1;
+    }
+    else
+    {
+        cout << "--## PAYMENT DECLINED/FAILED ##--" << endl;
+        return 0;
+    }
+    return 0;
 }
 
 void Bill::inputDiscountOption()

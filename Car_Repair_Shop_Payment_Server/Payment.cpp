@@ -14,7 +14,7 @@ string Payment::getPlate()
 }
 
 // Get the total cost of all repairs without discount
-string Payment::getTotalCost()
+float Payment::getTotalCost()
 {
     return this->totalCost;
 }
@@ -27,8 +27,8 @@ string Payment::getCardNumber()
 
 void Payment::displayBill()
 {
-    cout << "Bill for " << getPlate() << endl;
-    cout << "  Card Number: ****" << getCardNumber();
+    cout << "Bill for " << getPlate();
+    cout << "  Card Number: ****" << getCardNumber() << endl;
     cout << "********************\n"
         << endl;
     cout << "Total cost: " << getTotalCost() << endl;

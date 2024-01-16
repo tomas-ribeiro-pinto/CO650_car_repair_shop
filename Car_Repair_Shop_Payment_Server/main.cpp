@@ -6,18 +6,12 @@
 
 using namespace std;
 
-class Data {
-
-public:
-	string plate;
-};
-
 int main(int argc, char* argv[]) 
 {
 	SOCKADDR_STORAGE from;
 	int retval, fromlen;
 	char servstr[NI_MAXSERV], hoststr[NI_MAXHOST];
-	SOCKET serverSocket, acceptSocket;
+	SOCKET serverSocket, clientSocket;
 	int port = 55555;
 	WSADATA wsaData;
 	int wsaerr;
@@ -57,50 +51,63 @@ int main(int argc, char* argv[])
 		cout << "bind() is OK!" << endl;
 	}
 
-	if (listen(serverSocket, 1) == SOCKET_ERROR)
-		cout << "listen(): Error listening on socket " << WSAGetLastError() << endl;
-	else
-		cout << "listen() is OK, I'm waiting for connections..." << endl;
+	while (true)
+	{
+		if (listen(serverSocket, 1) == SOCKET_ERROR)
+			cout << "listen(): Error listening on socket " << WSAGetLastError() << endl;
+		else
+			cout << "listen() is OK, I'm waiting for connections..." << endl;
 
-	fromlen = sizeof(from);
-	acceptSocket = accept(serverSocket, (SOCKADDR*)&from, &fromlen);
+		fromlen = sizeof(from);
+		clientSocket = accept(serverSocket, (SOCKADDR*)&from, &fromlen);
 
-	if (acceptSocket == INVALID_SOCKET) {
-		cout << "accept failed: " << WSAGetLastError() << endl;
+		if (clientSocket == INVALID_SOCKET) {
+			cout << "accept failed: " << WSAGetLastError() << endl;
+			WSACleanup();
+			return -1;
+		}
+		cout << "Accepted connection" << endl;
+		retval = getnameinfo((SOCKADDR*)&from,
+			fromlen,
+			hoststr,
+			NI_MAXHOST,
+			servstr,
+			NI_MAXSERV,
+			NI_NUMERICHOST | NI_NUMERICSERV);
+		if (retval != 0) {
+			cout << "getnameinfo failed: " << retval << endl;
+			WSACleanup();
+			return -1;
+		}
+
+		cout << "Accepted connection from host " << hoststr << " and port " << servstr << endl;
+
+		Payment payment = Payment();
+		int byteCount = recv(clientSocket, (char*)&payment, sizeof(Payment), 0);
+		if (byteCount < 0) {
+			printf("Client: error %ld.\n", WSAGetLastError());
+			return 0;
+		}
+		else {
+			cout << "Payment Received!" << endl;
+			payment.displayBill();
+
+
+			char buffer[2] = "1";
+			int byteCountSnd = send(clientSocket, buffer, 2, 0);
+			if (byteCountSnd == SOCKET_ERROR) {
+				cout << "--## PAYMENT DECLINED/FAILED ##--" << endl;
+				cout << "Error:" << WSAGetLastError() << endl;
+				return 0;
+			}
+		}
+
+		closesocket(serverSocket);
+		closesocket(clientSocket);
+
+		system("pause");
 		WSACleanup();
-		return -1;
 	}
-	cout << "Accepted connection" << endl;
-	retval = getnameinfo((SOCKADDR*)&from,
-		fromlen,
-		hoststr,
-		NI_MAXHOST,
-		servstr,
-		NI_MAXSERV,
-		NI_NUMERICHOST | NI_NUMERICSERV);
-	if (retval != 0) {
-		cout << "getnameinfo failed: " << retval << endl;
-		WSACleanup();
-		return -1;
-	}
-
-	cout << "Accepted connection from host " << hoststr << " and port " << servstr << endl;
-
-	Payment payment = Payment();
-	Data data;
-	int byteCount = recv(acceptSocket, (char*)&data, sizeof(Data), 0);
-	if (byteCount < 0) {
-		printf("Client: error %ld.\n", WSAGetLastError());
-		return 0;
-	}
-	else {
-		cout << "Payment Received!" << endl;
-		cout << data.plate;
-		//payment.displayBill();
-	}
-
-	system("pause");
-	WSACleanup();
 
 
 	return 0;

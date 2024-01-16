@@ -7,14 +7,14 @@ class Payment
 {
 private:
     string plate;
-    string totalCost;
+    float totalCost;
     string cardNumber;
 
 public:
     Payment();
     ~Payment();
     string getPlate();
-    string getTotalCost();
+    float getTotalCost();
     string getCardNumber();
     void displayBill();
 };
