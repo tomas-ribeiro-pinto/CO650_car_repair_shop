@@ -1,4 +1,4 @@
-#include <string>
+﻿#include <string>
 #include <iostream>
 #include "Car.h"
 #include "Vehicle.h"
@@ -14,13 +14,13 @@ int main()
 {
     // Creates a new Login object and displays the
     // login screen for authentication purposes
-    Login *login = new Login();
+    Login* login = new Login();
     login->display();
 
     // Creates a list of vehicles
     // list<Vehicle> vehicles = {};
 
-    Dashboard *dashboard = new Dashboard();
+    Dashboard* dashboard = new Dashboard();
     dashboard->display();
     return 0;
 }
