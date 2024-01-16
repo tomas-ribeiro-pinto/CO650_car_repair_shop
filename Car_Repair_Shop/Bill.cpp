@@ -44,6 +44,12 @@ float Bill::getTotalCost()
     return this->totalCost;
 }
 
+// Get date issued
+void Bill::getDateIssued()
+{
+    this->dateIssued.display();
+}
+
 // Add discount to bill
 void Bill::setDiscount(float discount)
 {
@@ -187,4 +193,38 @@ void Bill::chooseDiscountOption(char& choice)
         inputDiscountOption();
     }
     }
+}
+
+void Bill::add(Bill**& bills, int& size)
+{
+    Bill** temp = new Bill * [size + 1];
+    if (size != 0)
+    {
+        for (int i = 0; i < size; i++)
+        {
+            temp[i] = bills[i];
+        }
+    }
+
+    temp[size] = this;
+    size++;
+
+    delete[] bills;
+    bills = temp;
+}
+
+vector<Bill*> Bill::searchBillsByPlate(Bill**& bills, int& size, string plate)
+{
+    vector<Bill*> searchResults{};
+    searchResults.reserve(size);
+
+    for (int i = 0; i < size; i++)
+    {
+        if (Repair::plateToUpperCase(bills[i]->getPlate()) == Repair::plateToUpperCase(plate) && bills[i]->isPayed() == true)
+        {
+            searchResults.push_back(bills[i]);
+        }
+    }
+
+    return searchResults;
 }

@@ -25,6 +25,7 @@ public:
     float getCost();
     float getDiscount();
     float getTotalCost();
+    void getDateIssued();
     string getCardNumber();
     bool isPayed();
     void setDiscount(float discount);
@@ -34,4 +35,6 @@ public:
     bool payBill();
     void inputDiscountOption();
     void chooseDiscountOption(char& choice);
+    void add(Bill**& bills, int &Size);
+    static vector<Bill*> searchBillsByPlate(Bill**& bills, int& size, string plate);
 };

@@ -64,51 +64,52 @@
   <ItemGroup>
     <None Include="PropertySheet.props" />
     <None Include="packages.config" />
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="readme.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Vehicle.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Van.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AddRepair.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bill.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Car.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Dashboard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Date.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Exception.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Login.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Motorcycle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Van.h">
+    <ClInclude Include="Payment.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PaymentGateway.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="RegisterVehicle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Repair.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Login.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Vehicle.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Exception.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Date.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Dashboard.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Car.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Bill.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AddRepair.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PaymentGateway.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Payment.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

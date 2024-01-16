@@ -1,5 +1,6 @@
 #include <iostream>
 #include <exception>
+
 using namespace std;
 
 class IOException : public exception
@@ -9,5 +10,17 @@ public:
     virtual const char* what() const throw()
     {
         return "Invalid Input Exception!";
+    }
+};
+
+class PaymentException : public exception
+{
+public:
+    float cost;
+    PaymentException(float c) :cost(c) {}
+    // Exception for payment failure
+    virtual const char* what() const throw()
+    {
+        return "--## PAYMENT DECLINED/FAILED ##--";
     }
 };

@@ -15,6 +15,8 @@ struct Dashboard
     int vSize;
     Repair** repairs;
     int rSize;
+    Bill** bills;
+    int bSize;
 
     // create a pointer to a function that returns void
     void (*returnToDashboard)();

@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AddRepair">
+    <Position X="1.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgIAAAAAAEQAAAADAAQgAADAQA=</HashCode>
+      <FileName>AddRepair.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bill">
+    <Position X="4" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAqEAAgAAIBAIAEgAASAAAAAQAAAAGEAAAQImECA=</HashCode>
+      <FileName>Bill.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Car">
+    <Position X="5.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Car.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Date">
+    <Position X="7.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAkAAAAAgAAAAAAAAAAAAAAAAUAAAABCAAAAAAAAAA=</HashCode>
+      <FileName>Date.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PaymentException">
+    <Position X="5.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAACAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exception.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Login">
+    <Position X="11.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAABAAAACAAAAAAAEAAAEQAAAAAAAQAgAAAAA=</HashCode>
+      <FileName>Login.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Motorcycle">
+    <Position X="1.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAgAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Motorcycle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Payment">
+    <Position X="1.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACABAAAAIAAAAIAAAQAAAAAAAAAACAAAAQAEAAA=</HashCode>
+      <FileName>Payment.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PaymentGateway">
+    <Position X="11.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAgABAAkAABAAAAAAAAgAUAAEAAAEAAA=</HashCode>
+      <FileName>PaymentGateway.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RegisterVehicle">
+    <Position X="5.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAgAAACCAAAAAAQKESAACACAAAAEAAAAA=</HashCode>
+      <FileName>RegisterVehicle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Repair">
+    <Position X="9.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAEAAAAAIAAKAAgZAAABACAQAIAADAAEAAARAAA=</HashCode>
+      <FileName>Repair.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Van">
+    <Position X="9.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEECAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Van.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Dashboard">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAgAACAAAAAMAAMAEAAAQAAAAEAAAAAAAAQgBAAEAA=</HashCode>
+      <FileName>Dashboard.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,4 +1,5 @@
 #include "PaymentGateway.h"
+#include "Exception.h"
 
 PaymentGateway::PaymentGateway()
 {
@@ -16,8 +17,15 @@ bool PaymentGateway::initialise()
 
 	// dll file missing error
 	if (wsaerr != 0) {
-		cout << "--## PAYMENT DECLINED/FAILED ##--" << endl;
-		cout << "Error: Missing required file!" << endl;
+		PaymentException ex(0);
+		try {
+			throw ex;
+		}
+		catch (PaymentException& e)
+		{
+			cout << e.what() << endl;
+			cout << "Error: Missing required file!" << endl;
+		}
 		return 0;
 	}
 }
@@ -29,8 +37,15 @@ bool PaymentGateway::connectToGateway() {
 
 	// error at socket
 	if (clientSocket == INVALID_SOCKET) {
-		cout << "--## PAYMENT DECLINED/FAILED ##--" << endl;
-		cout << "Error: socket: " << WSAGetLastError() << endl;
+		PaymentException ex(0);
+		try {
+			throw ex;
+		}
+		catch (PaymentException& e)
+		{
+			cout << e.what() << endl;
+			cout << "Error: socket: " << WSAGetLastError() << endl;
+		}
 		WSACleanup();
 		return 0;
 	}
@@ -41,8 +56,15 @@ bool PaymentGateway::connectToGateway() {
 
 	if (connect(clientSocket, (SOCKADDR*)&clientService, sizeof(clientService)) == SOCKET_ERROR) {
 		// connection error to server
-		cout << "--## PAYMENT DECLINED/FAILED ##--" << endl;
-		cout << "Error: Failed to connect." << endl;
+		PaymentException ex(0);
+		try {
+			throw ex;
+		}
+		catch (PaymentException& e)
+		{
+			cout << e.what() << endl;
+			cout << "Error: Failed to connect." << endl;
+		}
 		WSACleanup();
 		return 0;
 	}
@@ -82,8 +104,15 @@ bool PaymentGateway::payBill(Bill *bill) {
 			Payment payment = Payment(bill->getPlate(), bill->getTotalCost(), bill->getCardNumber());
 			int byteCount = send(clientSocket, (char*)&payment, sizeof(Payment), 0);
 			if (byteCount == SOCKET_ERROR) {
-				cout << "--## PAYMENT DECLINED/FAILED ##--" << endl;
-				cout << "Error:" << WSAGetLastError() << endl;
+				PaymentException ex(bill->getTotalCost());
+				try {
+					throw ex;
+				}
+				catch (PaymentException& e)
+				{
+					cout << e.what() << " Total Bill: " << e.cost << endl;
+					cout << "Error:" << WSAGetLastError() << endl;
+				}
 				return 0;
 			}
 
@@ -101,7 +130,14 @@ bool PaymentGateway::payBill(Bill *bill) {
 		}
 		else
 		{
-			cout << "--## PAYMENT DECLINED/FAILED ##--" << endl;
+			PaymentException ex(0);
+			try {
+				throw ex;
+			}
+			catch (PaymentException& e)
+			{
+				cout << e.what() << endl;
+			}
 			return 0;
 		}
 	}

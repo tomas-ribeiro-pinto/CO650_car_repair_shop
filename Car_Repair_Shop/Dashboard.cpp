@@ -5,12 +5,15 @@ Dashboard::Dashboard()
     this->option = '0';
     this->vSize = 1;
     this->rSize = 1;
+    this->bSize = 0;
 
     vehicles = new Vehicle * [vSize];
     vehicles[0] = new Car("ABC123", "John Doe", Date(01, 01, 2020), "Red", PETROL);
 
     repairs = new Repair * [rSize];
     repairs[0] = new Repair("ABC123", "Mark Sanderson", Date(27, 01, 2020), "Front Wheels to be replaced", true, 340.65);
+
+    bills = new Bill *[bSize];
 
     // assigns the function pointer to the return to dashboard function
     returnToDashboard = &Dashboard::promptToDashboard;
@@ -162,6 +165,10 @@ void Dashboard::chooseOption(char& option)
                 {
                     cout << "Bill not paid!" << endl;
                 }
+                else
+                {
+                    bill->add(bills, bSize);
+                }
             }
             else
             {
@@ -176,6 +183,30 @@ void Dashboard::chooseOption(char& option)
     {
         string searchPlate;
         cout << "Display previous bills" << endl;
+        cout << "Insert plate number:" << endl;
+        cin.ignore();
+        getline(cin, searchPlate);
+
+        vector<Bill*> searchResults = Bill::searchBillsByPlate(bills, bSize, searchPlate);
+
+        if (searchResults.size() == 0)
+        {
+            cout << "\nNo bills found for plate: " << searchPlate << endl;
+            cout << endl;
+        }
+        else
+        {
+            cout << "Previous bills : " << Repair::plateToUpperCase(searchPlate) << endl;
+            cout << "Cost | Date issued" << endl;
+
+            for(int i = 0; i < searchResults.size(); i++)
+            {
+                cout << searchResults.at(i)->getCost() << " | ";
+                searchResults.at(i)->getDateIssued();
+                cout << endl;
+            }
+        }
+        returnToDashboard();
         break;
     }
     case '8':
