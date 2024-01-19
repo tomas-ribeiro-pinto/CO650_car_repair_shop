@@ -25,6 +25,24 @@ Dashboard::Dashboard()
 
 Dashboard::~Dashboard()
 {
+    // Delete array of vehicles, repairs and bills
+    for (int n = 0; n < this->vSize; n++)
+    {
+        delete vehicles[n];
+    }
+    delete vehicles;
+
+    for (int n = 0; n < this->rSize; n++)
+    {
+        delete repairs[n];
+    }
+    delete repairs;
+
+    for (int n = 0; n < this->bSize; n++)
+    {
+        delete bills[n];
+    }
+    delete bills;
 }
 
 // Displays the home dashboard

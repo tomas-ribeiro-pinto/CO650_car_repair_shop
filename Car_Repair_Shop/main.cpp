@@ -15,5 +15,6 @@ int main()
     // Creates a new Dashboard object and displays the home screen
     Dashboard* dashboard = new Dashboard();
     dashboard->display();
+    delete dashboard;
     return 0;
 }

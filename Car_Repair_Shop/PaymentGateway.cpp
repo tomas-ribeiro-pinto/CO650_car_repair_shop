@@ -130,7 +130,7 @@ bool PaymentGateway::payBill(Bill *bill)
 
 
 			// Listen back for payment confirmation, on success returns true
-			// If ther is a client error returns payment exception and total cost of payment
+			// If there is a client error returns payment exception and total cost of payment
 			char success[2];
 			int byteCountRcv = recv(clientSocket, success, 2, 0);
 			if (byteCountRcv < 0) {
@@ -149,6 +149,7 @@ bool PaymentGateway::payBill(Bill *bill)
 				return 1;
 			}
 		}
+		// user cancels payment
 		else
 		{
 			PaymentException ex(0);
